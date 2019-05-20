@@ -1,0 +1,5 @@
+
+Hello {{name}}
+
+Welcome to the Instagram newsletter
+You will find the most exciting news about Instagram.
