@@ -64,3 +64,7 @@ class tags(models.Model):
 
     def delete_tags(self):
         self.delete()
+
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()

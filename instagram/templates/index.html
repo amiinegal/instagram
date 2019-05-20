@@ -2,30 +2,19 @@
 <link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Kodchasan|Spirax|Abril+Fatface" rel="stylesheet">
 
 <div class="container">
-
-  <div class="jumbotron text-center mb-0" style="background-color:white;">
-
-    <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:70px;">Instagram</h1>
-
-  </div>
-</div>
-
-
-
-<div class="container">
-
+  <div class="row">
   <div class="card-columns">
-
-    {% for image in pictures %}
-    <div class="card border-secondary"><a href="{% url 'image' image.id %}">
-        <img src="{{image.image.url}}" data-target="#imageModal{{image.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage"
+    {% for picture in pictures %}
+    <div class="card border-secondary"><a href="{#}">
+        <img src="{{picture.image_path.url}}" data-target="#imageModal{{image.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage"
           size="100px200"></a>
- <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ image.description}}</p>
-      <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ image.user}}</p>
+ <p style="font-family: 'Oswald', sans-serif;"> Caption : {{ picture.name}}</p>
+      <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ picture.profile.user}}</p>
 
     </div>
     {% endfor %}
   </div>
+</div>
 </div>
 <div class="jumbotron text-center mt-0" style="background-color:white;">
 

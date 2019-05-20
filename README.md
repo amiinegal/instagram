@@ -1,7 +1,7 @@
 ### InstagramCloneApp
 
 ### Description
-
+An attempt to create a clone of the famous instagram app
 
 ### Author
 _amin egal_

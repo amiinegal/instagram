@@ -4,8 +4,8 @@ from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from .forms import NewImageForm, UpdatebioForm
-# from .email import send_welcome_email
+from .forms import NewImageForm
+from .email import send_welcome_email
 from .forms import NewsLetterForm
 
 # Views
@@ -30,22 +30,16 @@ def home_images(request):
 
     else:
         pictures = Image.objects.all()
-
-    form = NewsLetterForm
-
-
     if request.method == 'POST':
-        form = NewsLetterForm(request.POST or None)
+        form = NewsLetterForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['your_name']
             email = form.cleaned_data['email']
 
-            recipient = NewsLetterRecipients(name=name, email=email)
-            recipient.save()
-            send_welcome_email(name, email)
-
+            
             HttpResponseRedirect('home_images')
-
+    else:
+        form = NewsLetterForm()
     return render(request, 'index.html', {'locations':locations,
                                           'pictures':pictures, 'letterForm':form})
 
@@ -58,7 +52,7 @@ def image(request, id):
         raise Http404()
 
     current_user = request.user
-    comments = Review.get_comment(Review, id)
+    return render(request,'image_detail.html')
 
     
 @login_required(login_url='/accounts/login/')

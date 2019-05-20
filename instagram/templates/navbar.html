@@ -1,7 +1,7 @@
 {% load static %}
 <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Charmonman|Kodchasan|Dancing+Script|Spirax" rel="stylesheet">
 
-<nav class="navbar bg-light ">
+<nav class="navbar bg-light">
   <div class="container-fluid">
     <div class="navbar-header">
         <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/instaicon1.jpg' %}" style="height:30px;width:36px;">
@@ -33,23 +33,30 @@
       {% endif %}
     </div>
 
+<!-- Adding a search form  -->
+<div class="col-sm-4 col-md-4 navbar-left">
 
-    <!-- Adding a search form  -->
-    <div class="col-sm-4 col-md-4 navbar-right">
+  <form class="navbar-form" role="search" action="{#}">
 
-      <form class="navbar-form" role="search" action="{% url 'search_users' %}">
 
-        <div class="input-group">
-          <input type="text" class="form-control mr-sm-4" placeholder="Search User" name="user">
-          <div class="input-group-btn">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Find</button>
-          </div>
-        </div>
-
-      </form>
+    <div class="input-group">
+      <input type="text" class="form-control mr-sm-4" placeholder="Search User" name="user">
+      <div class="input-group-btn">
+      <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/download.jpeg' %}" style="height:30px;width:36px;">
+      </a>
     </div>
-    <!-- search form end -->
 
+  </form>
+</div>
+<!-- search form end -->
 
+    <div class="input-group">
+      <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/images.png' %}" style="height:30px;width:36px;">
+      </a>
+    </div>
+    <div class="input-group">
+      <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/love.jpeg' %}" style="height:30px;width:36px;">
+      </a>
+    </div>
   </div>
 </nav>
