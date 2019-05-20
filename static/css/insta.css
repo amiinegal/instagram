@@ -16,7 +16,8 @@ font-size: 30px;
 }
 
 li {
-    display: inline;
+    display: inline-block;
+    text-align: center;
 }
 
 
@@ -24,10 +25,6 @@ li a {
 
     padding: 20px;
 }
-.navbar-brand{
-    text-align: center;
-}
-
 
 
     

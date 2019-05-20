@@ -37,26 +37,24 @@
 <div class="col-sm-4 col-md-4 navbar-left">
 
   <form class="navbar-form" role="search" action="{#}">
-
-
-    <div class="input-group">
-      <input type="text" class="form-control mr-sm-4" placeholder="Search User" name="user">
-      <div class="input-group-btn">
-      <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/download.jpeg' %}" style="height:30px;width:36px;">
-      </a>
-    </div>
-
+      <div class=" col-md-4 navbar-left">
+          <form class="navbar-form" role="search" action="{% url 'search_users' %}">
+              <div class="center">
+                  <input style="height:23px;width:200px;margin-top:6px;margin-left:5px" type="text" class="input-sm form-control" name="search-form"
+                      placeholder="               Search User">
+              </div>
+            </div>
   </form>
 </div>
 <!-- search form end -->
 
-    <div class="input-group">
+    <!-- <div class="input-group">
       <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/images.png' %}" style="height:30px;width:36px;">
       </a>
     </div>
     <div class="input-group">
       <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/love.jpeg' %}" style="height:30px;width:36px;">
       </a>
-    </div>
+    </div> -->
   </div>
 </nav>

@@ -2,6 +2,10 @@
 {% load bootstrap4 %}
 {% block content %}
 {% load static %}
+
+<link rel="stylesheet" href="{% static 'css/insta.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 <div class="row">
   <div class="col-md-6">
       <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/insta.jpg' %}" style="height:700px;width:500px; margin: 80px;padding-top: 0px;padding-bottom: 30px;margin-top:2px; ">
@@ -41,8 +45,10 @@ __<div class="row">
       </div>
     <!-- empty div -->
   </div>
-
- <!-- <ul class="active">
+<div class="container">
+  <div class="col-md-12">
+    <div class="footer text-centre">
+ <ul>
    <li > About us  </li>
    <li > Support  </li>
    <li > Page  </li>
@@ -50,7 +56,12 @@ __<div class="row">
    <li> Api  </li>
    <li> Profile  </li>
    <li > Register  </li>
+   <br>
+
+   <li style="font-size:10px;"><strong>@ 2018 amiin_egal</strong></li>
  </ul>
-   -->
+</div>
+</div>
+</div>
 
 {% endblock %}
