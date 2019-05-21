@@ -1,7 +1,11 @@
 from django.contrib import admin
-from .models import Image, Comment, Profile, Likes
+from .models import Image,  Profile,Location,tags
 # Register your models here.
+
+class ImageAdmin(admin.ModelAdmin):
+    filter_horizontal = ('tags')
+
 admin.site.register(Image)
 admin.site.register(Profile)
-admin.site.register(Comment)
-admin.site.register(Likes)
+admin.site.register(Location)
+admin.site.register(tags)
