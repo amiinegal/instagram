@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Image,Comment, Profile,Likes,Location
+from .models import Image,Profile,Location,tags
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -43,16 +43,17 @@ def home_images(request):
     return render(request, 'index.html', {'locations':locations,
                                           'pictures':pictures, 'letterForm':form})
 
-def image(request, id):
+def image(request):
+    images = Image.objects.all()
 
-    try:
-        image = Image.objects.get(pk = id)
+    # try:
+    #     image = Image.objects.get(pk = id)
 
-    except DoesNotExist:
-        raise Http404()
+    # except DoesNotExist:
+    #     raise Http404()
 
-    current_user = request.user
-    return render(request,'image_detail.html')
+    # current_user = request.user
+    return render(request,'registration/image_list.html', {"images":images})
 
     
 @login_required(login_url='/accounts/login/')
@@ -100,4 +101,46 @@ def search_image(request):
             message = "You haven't searched for any image"
             return render(request, 'search.html', {"message": message})
 
+@login_required(login_url='/accounts/login/')
+def myprofile(request, username = None):
 
+    current_user = request.user
+    pictures = Image.objects.filter(user=current_user).all()
+  
+
+    return render(request, 'profile.html', locals(), {'pictures':pictures})
+
+@login_required(login_url='/accounts/login/')
+def individual_profile_page(request, username):
+    print(username)
+    if not username:
+        username = request.user.username
+    # images by user id
+    images = Image.objects.filter(user_id=username)
+    user = request.user
+    profile = Profile.objects.get(user=user)
+    userf = User.objects.get(pk=username)
+    if userf:
+        print('user found')
+        profile = Profile.objects.get(user=userf)
+    else:
+        print('No suchuser')
+
+
+    return render (request, 'registration/profile.html', {'images':images,
+                                                                  'profile':profile,
+                                                                  'user':user,
+                                                                  'username': username})
+
+
+
+
+
+def user_list(request):
+    user_list = User.objects.all()
+    context = {'user_list': user_list}
+    return render(request, 'list.html', context)
+
+def image_detail(request, image_id):
+    image = Image.objects.get(id = image_id)
+    return render(request, 'image_details.html', {"image":image})
