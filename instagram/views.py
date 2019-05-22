@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from .forms import NewImageForm
 from .email import send_welcome_email
-from .forms import NewsLetterForm
+from .forms import NewsLetterForm, NewCommentForm
 
 # Views
 
@@ -50,7 +50,7 @@ def image(request):
     # try:
     #     image = Image.objects.get(pk = id)
 
-    # except DoesNotExist:
+    # except DoesNotExist:<div class="col-md-1"></div>
     #     raise Http404()
 
     # current_user = request.user
@@ -140,3 +140,25 @@ def user_list(request):
 def image_detail(request, image_id):
     image = Image.objects.get(id = image_id)
     return render(request, 'image_details.html', {"image":image})
+
+@login_required(login_url='/accounts/login/')
+def new_comment(request, username):
+    current_user =request.user
+    username = current_user.username
+    if request.method =='POST':
+        form = NewCommentForm(request.POST, request.FILES)
+        if form.is_valid():
+            comment = form.save()
+            comment.user = request.user
+            comment.save()
+        return redirect('homePage')
+    else:
+        form = NewCommentForm()
+    return render(request, 'new_comment.html', {"form":form})
+
+@login_required(login_url='/accounts/login/')
+def single_image_like(request, image_id):
+    image = Image.objects.get(id=image_id)
+    image.likes = image.likes + 1
+    image.save()
+    return redirect('homePage')

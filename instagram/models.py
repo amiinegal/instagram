@@ -126,29 +126,12 @@ class Image(models.Model):
     def update_description(cls, id):
         pictures = cls.objects.filter(id=id).update(id=id)
         return pictures
-
-class Followers(models.Model):
-    '''
-    followers
-    '''
-    user = models.CharField(max_length=20, default="",unique=True)
-    follower = models.CharField(max_length=20, default="")
-
-
 class NewsLetterRecipients(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
 
-class Like(models.Model):
-    user = models.ForeignKey(User)
-    image = models.ForeignKey(Image)
-    value = models.IntegerField(default=True, null=True, blank=True)
-
-    def save_like(self):
-        self.save()
-
-    def __str__(self):
-        return str(self.user) + ':' + str(self.image) + ':' + str(self.value)
-
-    class Meta:
-        unique_together = ("user", "image", "value")
+class Comment(models.Model):
+    comment = models.CharField(null = True, max_length= 5000, verbose_name = 'name')
+    date = models.DateTimeField(auto_now_add=True, null=True)
+    user = models.ForeignKey(User, null=True)
+    image = models.ForeignKey(Image, null= True)
