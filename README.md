@@ -16,7 +16,12 @@ _amin egal_
            ``` pyhton3.6 manage.py server ```
 
 ### BDD
-
+|  Behavior |  Input |  Output |
+|:-:|---|---|
+| asks to fill in a log in form  |  form is displayed where you put in your credentials | takes you to the homepage  |
+| user can add an image  | add image image  | uploads an image to the homepage  |
+|user can edit his profile   | edit profile option   |edits profile   |
+| user can search a user  | name of the user  | user's profile/images  |
 ### Technologies Used
 * CSS.
 * HTML.
