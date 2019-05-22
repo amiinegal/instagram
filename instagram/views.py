@@ -43,6 +43,7 @@ def home_images(request):
     return render(request, 'index.html', {'locations':locations,
                                           'pictures':pictures, 'letterForm':form})
 
+@login_required(login_url='/accounts/login/')
 def image(request):
     images = Image.objects.all()
 
@@ -134,12 +135,10 @@ def individual_profile_page(request, username):
 
 
 
-
-
 def user_list(request):
     user_list = User.objects.all()
     context = {'user_list': user_list}
-    return render(request, 'list.html', context)
+    return render(request, 'image_details.html', context)
 
 def image_detail(request, image_id):
     image = Image.objects.get(id = image_id)
