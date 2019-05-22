@@ -106,7 +106,7 @@ if config('MODE')=="prod":
 else:
    DATABASES = {
        'default': dj_database_url.config(
-           default=config('DATABASE_URL')
+           default=('postgres://amin:12345@localhost/insta')
        )
    }
 
