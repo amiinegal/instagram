@@ -128,10 +128,7 @@ def individual_profile_page(request, username):
         print('No suchuser')
 
 
-    return render (request, 'registration/profile.html', {'images':images,
-                                                                  'profile':profile,
-                                                                  'user':user,
-                                                                  'username': username})
+    return render (request, 'registration/profile.html', {'images':images,'profile':profile,'user':user, 'username': username})
 
 
 

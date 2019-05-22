@@ -1,21 +1,31 @@
 {% extends 'base.html' %} {% load static %} {% load bootstrap4 %}{% block content %}
+<link rel="stylesheet" href="{% static 'css/insta.css' %}">
 <link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Kodchasan|Spirax|Abril+Fatface" rel="stylesheet">
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-  <div class="card-columns">
-    {% for picture in pictures %}
-    <div class="card border-secondary"><a href="{% url 'image-detail' picture.id %}">
-        <img src="{{picture.image_path.url}}" data-target="#imageModal{{image.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage"
-          size="100px200"></a>
- <p style="font-family: 'Oswald', sans-serif;" href="#"> Caption : {{ picture.name}}</p>
-      <p style="font-family: 'Oswald', sans-serif;">Posted by : {{ picture.profile.user}}</p>
-
-    </div>
-    {% endfor %}
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row">
+          {% for picture in pictures %}
+          <div class="col-md-8">
+      
+          <div class="card" style="width:500px">
+              <img class="card-img-top" src="{{picture.image_path.url}}" alt="Card image">
+              <div class="card-body">
+                <p class="card-title" style="font-family: 'Oswald', sans-serif;" href="#"> <img src="https://img.icons8.com/material-outlined/24/000000/filled-like.png"></p>
+                <p class="card-text" style="font-family: 'Oswald', sans-serif;" href="#"><img src="https://img.icons8.com/metro/26/000000/topic.png"></p>
+                <p class="card-text" style="font-family: 'Oswald', sans-serif;" href="#"><img src="https://img.icons8.com/ios-glyphs/30/000000/share-rounded.png"></p>
+              </div>
+            </div>
+          </div>       
+          {% endfor %}
+      </div>
+    </div>   
+    <div class="col-md-2"></div>
   </div>
-</div>
-</div>
+  
+  
 <div class="jumbotron text-center mt-0" style="background-color:white;">
 
   <form  action="{%url 'homePage'%}" method="post">
@@ -25,5 +35,6 @@
     <input type="submit" value="Subscribe To Instagram ">
   </form>
 
+</div>
 </div>
 {% endblock %}

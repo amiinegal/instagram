@@ -5,7 +5,7 @@
 
   <div class="jumbotron text-center" style="background-color:white;">
 
-    <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:blue;font-size:70px;">Instagram</h1>
+    <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:black;font-size:70px;">Instagram</h1>
 
 
   </div>
@@ -14,21 +14,15 @@
 
 <div class="container">
 <div class="card mb-3" style="width:40rem;;">
-  <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap" class="img-fluid" size="100px200">
-  <!-- <div class="card-body">
-    <button class="btn btn-lg btn-danger">Like This Image</button>
+  <img class="card-img-top" src="{{image.image_path.url}}" alt="Card image cap" class="img-fluid" width="60px" height="600px">
+  <div class="card-body">
+    <button class="btn btn-lg btn-primary">Like This Image</button>
+    <a href="#" onClick="document.getElementById('likebutton').submit()">Like This Post</a> {{picture.likes}}
 
-
-
-
-   
-
-    <a href="#" onClick="document.getElementById('likebutton').submit()">Like This Post</a> {{image.likes}}
-
-<form id="likebutton" method="POST" action="/posts/{{image.id}}/preference/1/">
+<form id="likebutton" method="POST" action="/posts/{{picture.id}}/preference/1/">
 {% csrf_token %}
 <input type="hidden">
-</form> -->
+</form>
 
 
     

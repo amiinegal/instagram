@@ -25,7 +25,9 @@ li a {
 
     padding: 20px;
 }
-
+p{
+    display: inline-block;
+}
 
     
 
