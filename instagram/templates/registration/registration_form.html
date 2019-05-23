@@ -1,4 +1,4 @@
-{%extends "registration/base.html"%} {% load bootstrap3 %}
+{%extends "registration/base.html"%} {% load bootstrap4 %}
 {% block content %}
 <div class="container">
   <div class="row">
@@ -6,7 +6,7 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
       {% if form.errors %}
-        <p> Some Information Might be Incorrect </p>
+        <p> Incorrect Input </p>
       {% endif %}
       <div class="panel panel-default">
 

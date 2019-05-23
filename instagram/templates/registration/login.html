@@ -19,10 +19,8 @@
       {% endif %}
       <div class="panel panel-default">
           <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/ig.png' %}" style="height:100px;width:200px;"></a>
-      <div class="card-columns">
-      </div>
+      
         <div class="panel-body">
-
           <form  action="/accounts/login/" method="post">
             {% csrf_token %}
             {% bootstrap_form form%}
@@ -36,6 +34,9 @@
           </form>
         </div>
         </div>
+        <div class="card-columns">
+            <a href="/accounts/register"><input type="submit" class="btn btn-primary btn-sm" value="sign up"></a> 
+            </div>
 __<div class="row">
     <div class="col-md-3">
         <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'photos/google.png' %}" style="height:100px;width:200px;"><img src="{% static 'photos/app.png' %}" style="height:90px;width:200px;">
@@ -45,23 +46,52 @@ __<div class="row">
       </div>
     <!-- empty div -->
   </div>
-<div class="container">
-  <div class="col-md-12">
-    <div class="footer text-centre">
- <ul>
-   <li > About us  </li>
-   <li > Support  </li>
-   <li > Page  </li>
-   <li > Contact us  </li>
-   <li> Api  </li>
-   <li> Profile  </li>
-   <li > Register  </li>
-   <br>
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
 
-   <li style="font-size:10px;"><strong>@ 2018 amiin_egal</strong></li>
- </ul>
-</div>
-</div>
-</div>
+    <!-- Footer Elements -->
+    <div class="container">
+  
+      <!-- Social buttons -->
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+          <a class="btn-floating btn-fb mx-1">
+              <img src="https://img.icons8.com/color/48/000000/facebook-new.png">
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-tw mx-1">
+              <img src="https://img.icons8.com/ios/50/000000/twitter-filled.png">
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-gplus mx-1">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/youtube-play.png">
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-li mx-1">
+              <img src="https://img.icons8.com/ios/50/000000/slack-filled.png">
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-dribbble mx-1">
+              <img src="https://img.icons8.com/color/48/000000/devpost.png">
+          </a>
+        </li>
+      </ul>
+      <!-- Social buttons -->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://www.instagram.com/amiin_egal/">amiin_egal </a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
 
 {% endblock %}
